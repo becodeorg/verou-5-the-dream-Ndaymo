@@ -17,10 +17,18 @@
         $intBif = floatval($bif);
 
         $currencyType = isset($_POST["currencyType"]) ? $_POST["currencyType"] : "euro";
+        switch ($currencyType) {
+            case "euro":
+                $amount = $bif * 0.00032;
+                break;
+            case "dollar":
+                $amount = $bif * 0.00035;
+                break;
+            case "krona":
+                $amount = $bif * 0.0037;
+                break;
+        }
 
-
-        $euroExhangeRate = 0;
-        $Amount = 0;
         echo $Amount;
 
     }
@@ -36,11 +44,10 @@
             <select name="currencyType" id="currency">
                 <option value="euro">€</option>
                 <option value="dollar">$</option>
-                <option value="krona">$</option>
+                <option value="krona">KR</option>
             </select>
-            <input name="EURO" type="text" value="<?php echo $Amount; ?>" readonly>
-
             <button type="submit">Exchange</button>
+            <input name="EURO" type="text" value="<?php echo $amount; ?>" placeholder="Amount" readonly>
         </form>
     </main>
 </body>
