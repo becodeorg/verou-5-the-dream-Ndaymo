@@ -10,26 +10,37 @@
 
 <body>
     <!-- <?php
+    $currencyType = "euro";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $bif = htmlspecialchars($_POST["BIF"]);
         $intBif = floatval($bif);
-        $euroExhangeRate = 0.00032;
-        $euroAmount = $intBif * $euroExhangeRate;
-        header("Location: ../index.php");
+
+        $currencyType = isset($_POST["currencyType"]) ? $_POST["currencyType"] : "euro";
+
+
+        $euroExhangeRate = 0;
+        $Amount = 0;
+        echo $Amount;
+
     }
 
     ?> -->
     <main>
         <h1>Welcome to Burundi plaza</h1>
-        <form action="./includes/formHandler.php" method="post">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <label for="BIF">BIF:</label>
             <input id="bif" name="BIF" type="text" placeholder="1">
 
-            <label for="EURO">EURO:</label>
-            <input name="EURO" type="text" placeholder="0.00032" readonly>
-            <button type="submit">Exchange</button>
+            <label for="EURO">FOREIGN CURRENCY:</label>
+            <select name="currencyType" id="currency">
+                <option value="euro">€</option>
+                <option value="dollar">$</option>
+                <option value="krona">$</option>
+            </select>
+            <input name="EURO" type="text" value="<?php echo $Amount; ?>" readonly>
 
+            <button type="submit">Exchange</button>
         </form>
     </main>
 </body>

@@ -1,10 +1,11 @@
 body {
   background-color: rgb(7, 7, 14);
-  color: blue;
+  color: white;
   display: flex;
   flex-direction: column;
 }
-main h1 {
+main h1,
+h2 {
   text-align: center;
 }
 
