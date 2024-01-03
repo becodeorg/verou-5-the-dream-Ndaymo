@@ -18,3 +18,8 @@ form {
 label {
   margin-bottom: 20px;
 }
+#display {
+  width: 25%;
+  background-color: lightgreen;
+  color: black;
+}

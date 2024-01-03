@@ -29,7 +29,7 @@
                 break;
         }
 
-        echo $Amount;
+        echo $amount;
 
     }
 
@@ -47,7 +47,9 @@
                 <option value="krona">KR</option>
             </select>
             <button type="submit">Exchange</button>
-            <input name="EURO" type="text" value="<?php echo $amount; ?>" placeholder="Amount" readonly>
+            <span id="display" name="EURO" type="text">
+                <?php echo $amount; ?>
+            </span>
         </form>
     </main>
 </body>
